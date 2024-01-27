@@ -94,12 +94,8 @@ WSGI_APPLICATION = 'cardealer.wsgi.application'
 
 DATABASES = {
      'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cardealer_db',
-        'USER': 'postgres', 
-        'PASSWORD': '0000', 
-        'HOST': '127.0.0.1',
-		'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
      }
  }
 
