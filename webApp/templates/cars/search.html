@@ -5,20 +5,18 @@
 {% block content %}
 {% load humanize %}
 <!-- Banner start -->
-<!-- Log on to codeastro.com for more projects -->
 <div class="sub-banner overview-bgi">
     <div class="container breadcrumb-area">
         <div class="breadcrumb-areas">
             <h1>Search Results</h1>
             <ul class="breadcrumbs">
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Search</li>
+                <li><a href="index.html">خانه</a></li>
+                <li class="active">جست و جو</li>
             </ul>
         </div>
     </div>
 </div>
 <!-- Banner end -->
-<!-- Log on to codeastro.com for more projects -->
 <!-- Search box 3 start -->
 <div class="search-box-3 sb-7 bg-active">
     <div class="container">
@@ -49,7 +47,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="year">
-                                    <option selected='selected' disabled='disabled'>Select Year</option>
+                                    <option selected='selected' disabled='disabled'>سال را انتخاب کنید</option>
                                     {% for year in year_search %}
                                       <option value="{{year}}">{{year}}</option>
                                     {% endfor %}
@@ -62,7 +60,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="body_style">
-                                    <option selected='selected' disabled='disabled'>Select Type Of Car</option>
+                                    <option selected='selected' disabled='disabled'>نوع ماشین را مشخص کنید</option>
                                     {% for body_style in body_style_search %}
                                       <option value="{{body_style}}">{{body_style}}</option>
                                     {% endfor %}
@@ -72,7 +70,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="transmission">
-                                    <option selected='selected' disabled='disabled'>Transmission</option>
+                                    <option selected='selected' disabled='disabled'>انتقال</option>
                                     {% for transmission in transmission_search %}
                                       <option value="{{transmission}}">{{transmission}}</option>
                                     {% endfor %}
@@ -87,11 +85,10 @@
                                 </div>
                             </div>
                         </div>
-						<!-- Log on to codeastro.com for more projects -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <button class="btn btn-block button-theme btn-md">
-                                    <i class="fa fa-search"></i>Filter Cars
+                                    <i class="fa fa-search"></i>فیلتر کردن ماشین ها
                                 </button>
                             </div>
                         </div>
@@ -108,7 +105,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Your Search <span>Result</span></h1>
+            <h1>جست و جو شما <span>نتیجه</span></h1>
             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
         </div>
         <div class="row">
@@ -117,12 +114,12 @@
                 <div class="car-box">
                     <div class="car-thumbnail">
                         <a href="{% url 'car_detail' car.id %}" class="car-img">
-                            <div class="tag">For Sale</div>
+                            <div class="tag">برای فروش</div>
                             <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                             <div class="facilities-list clearfix">
                                 <ul>
                                     <li>
-                                        <span><i class="flaticon-way"></i></span>{{car.miles | intcomma}} miles
+                                        <span><i class="flaticon-way"></i></span>{{car.miles | intcomma}} کیلومتر
                                     </li>
                                     <li>
                                         <span><i class="flaticon-calendar-1"></i></span>{{car.year}}
@@ -186,7 +183,6 @@
                         </div>
                     </div>
                 </div>
-				<!-- Log on to codeastro.com for more projects -->
             </div>
           {% endfor %}
         </div>
