@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0df7441-8d2d-4dea-8533-7a0347276a84" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/webApp/templates/pages/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/templates/pages/services.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/online-car-store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/online-car-store.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +38,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "translation",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/alimtt/Documents/GitHub/online-car-store/online-car-store"
   }
 }]]></component>
