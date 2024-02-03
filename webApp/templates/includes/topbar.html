@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-7">
                 <div class="list-inline">
-                    <a href="tel:+1 125-010-0110"><i class="fa fa-phone"></i>+1 125-010-0110</a>
+                    <a href="tel:+1 125-010-0110"><i class="fa fa-phone"></i>+98 965643020</a>
                     <a href="tel:info@carweb.cm"><i class="fa fa-envelope"></i>info@carweb.cm</a>
-                    <a href="tel:info@carweb.cm"><i class="fa fa-clock-o"></i>Mon - Sat: 8:00am - 6:30pm</a>
+                    <a href="tel:info@carweb.cm"><i class="fa fa-clock-o"></i>شنبه - پنجشنبه | ساعت ۸:۰۰ - ۱۸:۰۰</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-5">
@@ -15,11 +15,11 @@
 
                   {% if user.is_authenticated %}
                   <li>
-                      <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-xs"><i class="fa fa-tachometer"></i> Dashboard</a>
+                      <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-xs"><i class="fa fa-tachometer"></i> داشبورد</a>
                   </li>
 
                   <li>
-                      <a href="javascript:{document.getElementById('logout').submit()}" class="btn btn-danger btn-xs"><i class="fa fa-sign-out"></i> Logout</a>
+                      <a href="javascript:{document.getElementById('logout').submit()}" class="btn btn-danger btn-xs"><i class="fa fa-sign-out"></i> خروج</a>
                       <form action="{% url 'logout' %}" id="logout" method="POST">
                         {% csrf_token %}
                         <input type="hidden">
@@ -27,14 +27,13 @@
                   </li>
                   {% else %}
                     <li>
-                        <a href="{% url 'login' %}" class="btn btn-secondary btn-xs"><i class="fa fa-sign-in"></i> Login</a>
+                        <a href="{% url 'login' %}" class="btn btn-secondary btn-xs"><i class="fa fa-sign-in"></i> ورود</a>
                     </li>
                     <li>
-                        <a href="{% url 'register' %}" class="btn btn-secondary btn-xs"><i class="fa fa-user-plus"></i> Register</a>
+                        <a href="{% url 'register' %}" class="btn btn-secondary btn-xs"><i class="fa fa-user-plus"></i> ثبت نام</a>
                     </li>
                   {% endif %}
                 </ul>
-				<!-- Log on to codeastro.com for more projects -->
             </div>
         </div>
     </div>

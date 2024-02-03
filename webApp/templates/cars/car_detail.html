@@ -5,14 +5,13 @@
 
 {% load static %}
 {% load humanize %}
-<!-- Log on to codeastro.com for more projects -->
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="container breadcrumb-area">
         <div class="breadcrumb-areas">
             <h1>{{single_car.car_title}}</h1>
             <ul class="breadcrumbs">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">خانه</a></li>
                 <li class="active">{{single_car.car_title}}</li>
             </ul>
         </div>
@@ -110,7 +109,7 @@
                     <div class="tabbing tabbing-box mb-40">
                         <ul class="nav nav-tabs" id="carTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active show" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="false">Vehicle overview</a>
+                                <a class="nav-link active show" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="false">اطلاعات خودرو</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Features</a>
@@ -120,7 +119,7 @@
                             <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div class="car-description mb-50">
                                     <h3 class="heading-2">
-                                        Description
+                                        توضیحات
                                     </h3>
                                     <p>
                                       {{single_car.description | safe }}
@@ -155,57 +154,57 @@
                 <div class="sidebar-right">
                     <!-- Advanced search start -->
                     <div class="widget advanced-search d-none-992">
-                        <button class="btn btn-danger bomd btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Send a Message</button>
+                        <button class="btn btn-danger bomd btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">یک پیام ارسال کنید</button>
 
 
                         <br>
-                        <h3 class="sidebar-title">Car Specs</h3>
+                        <h3 class="sidebar-title">مشخصات خودرو</h3>
                         <ul>
                             <li>
-                                <span><b>Color:</b> </span>{{single_car.color}}
+                                <span><b>رنگ:</b> </span>{{single_car.color}}
                             </li>
                             <li>
-                                <span><b>Model:</b> </span>{{single_car.model}}
+                                <span><b>مدل:</b> </span>{{single_car.model}}
                             </li>
                             <li>
-                                <span><b>Year:</b> </span>{{single_car.year}}
+                                <span><b>سال:</b> </span>{{single_car.year}}
                             </li>
                             <li>
-                                <span><b>Condition:</b> </span>{{single_car.condition}}
+                                <span><b>وضعیت:</b> </span>{{single_car.condition}}
                             </li>
                             <li>
-                                <span><b>Body Style:</b> </span>{{single_car.body_style}}
+                                <span><b>استایل بدنه:</b> </span>{{single_car.body_style}}
                             </li>
                             <li>
-                                <span><b>Engine:</b> </span>{{single_car.engine}}
+                                <span><b>موتور:</b> </span>{{single_car.engine}}
                             </li>
                             <li>
-                                <span><b>Transmission:</b> </span>{{single_car.transmission}}
+                                <span><b>انتقال:</b> </span>{{single_car.transmission}}
                             </li>
                             <li>
-                                <span><b>Interior:</b> </span>{{single_car.interior}}
+                                <span><b>داخل:</b> </span>{{single_car.interior}}
                             </li>
                             <li>
-                                <span><b>Miles:</b> </span>{{single_car.miles | intcomma}} miles
+                                <span><b>کیلومتر:</b> </span>{{single_car.miles | intcomma}} miles
                             </li>
                             <li>
-                                <span><b>Doors:</b> </span>{{single_car.doors}}
+                                <span><b>درها:</b> </span>{{single_car.doors}}
                             </li>
                             <li>
-                                <span><b>Passengers:</b> </span>{{single_car.passengers}}
+                                <span><b>مسافران:</b> </span>{{single_car.passengers}}
                             </li>
                             <li>
-                                <span><b>VID No.:</b> </span>{{single_car.vin_no}}
+                                <span><b>شماره VID:</b> </span>{{single_car.vin_no}}
                             </li>
                             <li>
-                                <span><b>Mileage:</b> </span>{{single_car.milage}}
+                                <span><b>مسافت پیموده شده:</b> </span>{{single_car.milage}}
                             </li>
 
                             <li>
-                                <span><b>Fuel Type:</b> </span>{{single_car.fuel_type}}
+                                <span><b>نوع سوخت:</b> </span>{{single_car.fuel_type}}
                             </li>
                             <li>
-                                <span><b>Owners:</b> </span>{{single_car.no_of_owners}}
+                                <span><b>مالکین:</b> </span>{{single_car.no_of_owners}}
                             </li>
                         </ul>
                     </div>
@@ -233,7 +232,7 @@
 
                               <input type="hidden" name="car_id" value="{{single_car.id}}">
                                 <div class="form-group">
-                                  <label for="name" class="col-form-label">Hello, My Name is</label>
+                                  <label for="name" class="col-form-label">سلام اسم من هست</label>
                                   <div class="row">
                                     <div class="col">
                                       <input type="text" name="first_name" class="form-control" placeholder="First Name"
@@ -247,13 +246,13 @@
                                 </div>
                                   <div class="form-group">
                                       <select class="form-control" id="sel1" name="customer_need">
-                                        <option value="I'm interested in this">I'm interested in this</option>
-                                        <option value="I'd like to know your best price for this">I'd like to know your best price for this</option>
-                                        <option value="I'd like to Schedule a Test Drive">I'd like to Schedule a Test Drive</option>
-                                        <option value="Check home delivery options">Check home delivery options</option>
-                                        <option value="I'd like a history report for this">I'd like a history report for this</option>
-                                        <option value="Discuss Financing">Discuss Financing</option>
-                                        <option value="Others [Mention Below]">Others [Mention Below]</option>
+                                        <option value="I'm interested in this">من به این مورد علاقه دارم.</option>
+                                        <option value="I'd like to know your best price for this">بهترین قیمت را برای این مورد بفرمائید.</option>
+                                        <option value="I'd like to Schedule a Test Drive">میخواهم یک تاریخ برای تست کردن این مورد هماهنگ کنم.</option>
+                                        <option value="Check home delivery options">بررسی نحوه ارسال.</option>
+                                        <option value="I'd like a history report for this">میخواهم تاریخچه این مورد را بدانم.</option>
+                                        <option value="Discuss Financing">مذاکره در مورد قیمت.</option>
+                                        <option value="Others [Mention Below]">دیگر موارد (در زیر مشخص کنید.)</option>
                                       </select>
                                     </div>
 									<!-- Log on to codeastro.com for more projects -->
@@ -262,7 +261,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="name" class="col-form-label">I live in</label>
+                                  <label for="name" class="col-form-label">من زندگی میکنم در</label>
                                   <div class="row">
                                     <div class="col">
                                       <input type="text" name="city" class="form-control" placeholder="City" required>
@@ -276,19 +275,19 @@
                                 <div class="form-group">
                                   <div class="row">
                                     <div class="col">
-                                        <label for="name" class="col-form-label">You can reach me by email at</label>
+                                        <label for="name" class="col-form-label">میتوانید با این آدرس از طریق ایمیل با من ارتباط بگیرید.</label>
                                       <input type="email" name="email" class="form-control" placeholder="Email Address"
                                        {% if user.is_authenticated %} value="{{user.email}}"  {% endif %} required>
                                     </div>
                                     <div class="col">
-                                        <label for="phone" class="col-form-label">or by cell at</label>
+                                        <label for="phone" class="col-form-label">یا بوسیله تلفن با شماره</label>
                                       <input type="text" name="phone" placeholder="Phone Number (optional)" class="form-control">
                                     </div>
                                   </div>
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="message" class="col-form-label">Additional Messages</label>
+                                  <label for="message" class="col-form-label">پیام های بیشتر</label>
                                   <textarea name="message" class="form-control" placeholder="Enter your message here (optional)"></textarea>
                                 </div>
                                 <hr>
@@ -300,25 +299,25 @@
                     </div>
                     <!-- Question start -->
                     <div class="widget question">
-                        <h5 class="sidebar-title">Got Any Question?</h5>
+                        <h5 class="sidebar-title">آیا سوالی دارید؟</h5>
                         <ul class="contact-info">
                             <li>
-                                <i class="flaticon-pin"></i>47 Clement Street, Atlanta
+                                <i class="flaticon-pin"></i>احمد آباد، خیابان ابومسلم ۱۳
                             </li>
                             <li>
                                 <i class="flaticon-mail"></i><a href="mailto:info@carweb.cm">info@carweb.cm</a>
                             </li>
                             <li>
-                                <i class="flaticon-phone"></i><a href="tel:+0477-85x6-552">+0477 1506 525</a>
+                                <i class="flaticon-phone"></i><a href="tel:+0477-85x6-552">+989259652430</a>
                             </li>
                         </ul>
                         <div class="social-list clearfix">
                             <ul>
-                                <li><a href="https://codeastro.com/" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="rss-bg"><i class="fa fa-rss"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="" class="rss-bg"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -327,6 +326,6 @@
             </div>
         </div>
     </div>
-</div><!-- Log on to codeastro.com for more projects -->
+</div>
 <!-- Properties details page end -->
 {% endblock %}

@@ -14,28 +14,31 @@
                 <img class="d-block w-100 h-100" src="{% static 'img/car-6.jpg' %}" alt="banner">
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
                 
-                    <h3>Drive Your Own Dreams</h3>
-                    <h5>Allow us to guide you through the innovative stress<br>
-                        free approach in finding your dream car.</h5>
-                    <a href="{% url 'services' %}" class="btn btn-lg btn-theme">Read More</a>
+                    <h3>سوار رویاهای خود شوید</h3>
+                    <h5>به ما اجازه دهید تا شما را در مسیری بدون استرس<br>
+                        به ماشین رویاهایتان برسانیم.
+                     </h5>
+                    <a href="{% url 'services' %}" class="btn btn-lg btn-theme">بیشتر بخوانید</a>
                 </div>
             </div>
             <div class="carousel-item banner-max-height item-bg">
                 <img class="d-block w-100 h-100" src="{% static 'img/car-7.jpg' %}" alt="banner">
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
-                    <h3>Fuel for Soul</h3>
-                    <h5>Allow us to guide you through the innovative stress<br>
-                        free approach in finding your dream car.</h5>
-                    <a href="{% url 'services' %}" class="btn btn-lg btn-theme">Read More</a>
+                    <h3>بنزینی برای روح شما</h3>
+                    <h5>به ما اجازه دهید تا شما را در مسیری بدون استرس<br>
+                        به ماشین رویاهایتان برسانیم.
+                     </h5>
+                    <a href="{% url 'services' %}" class="btn btn-lg btn-theme">بیشتر بخوانید</a>
                 </div>
             </div>
             <div class="carousel-item banner-max-height item-bg">
                 <img class="d-block w-100 h-100" src="{% static 'img/carslider2.jpg' %}" alt="banner">
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
-                    <h3>Car for Everyone</h3>
-                    <h5>Allow us to guide you through the innovative stress<br>
-                        free approach in finding your dream car.</h5>
-                    <a href="{% url 'services' %}" class="btn btn-lg btn-theme">Read More</a>
+                    <h3>ماشین برای همه</h3>
+                    <h5>به ما اجازه دهید تا شما را در مسیری بدون استرس<br>
+                        به ماشین رویاهایتان برسانیم.
+                     </h5>
+                    <a href="{% url 'services' %}" class="btn btn-lg btn-theme">بیشتر بخوانید</a>
                 </div>
             </div>
         </div>
@@ -43,12 +46,12 @@
         <div class="search-box-4 sb-8">
             <form action="{% url 'search' %}" method="">
                 <div class="form-group">
-                    <input type="text" name="keyword" placeholder="Search by Car Name" class="form-control">
+                    <input type="text" name="keyword" placeholder="جست و جو براساس نام ماشین" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <select class="form-control search-fields" name="model">
-                        <option selected="true" disabled="disabled">Model</option>
+                        <option selected="true" disabled="disabled">مدل</option>
                         {% for model in model_search %}
                           <option value="{{model}}">{{model}}</option>
                         {% endfor %}
@@ -57,7 +60,7 @@
 				<!-- Log on to codeastro.com for more projects -->
                 <div class="form-group">
                     <select class="form-control search-fields" name="city">
-                        <option selected="true" disabled="disabled">Location</option>
+                        <option selected="true" disabled="disabled">موقعیت مکانی</option>
                         {% for city in city_search %}
                           <option value="{{city}}">{{city}}</option>
                         {% endfor %}
@@ -65,7 +68,7 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control search-fields" name="year">
-                        <option selected="true" disabled="disabled">Year</option>
+                        <option selected="true" disabled="disabled">سال تولید</option>
                         {% for year in year_search %}
                           <option value="{{year}}">{{year}}</option>
                         {% endfor %}
@@ -73,15 +76,15 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control search-fields" name="body_style">
-                        <option selected="true" disabled="disabled">Select Type Of Car</option>
+                        <option selected="true" disabled="disabled">نوع ماشین را مشخص کنید</option>
                         {% for body_style in body_style_search %}
                           <option value="{{body_style}}">{{body_style}}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="range-slider clearfix">
-                                <label>Price</label>
-                                <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                <label>قیمت</label>
+                                <div data-min="100000000" data-max="1000000000"  data-min-name="min_price" data-max-name="max_price" data-unit="تومان" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                 <div class="clearfix"></div>
                             </div>
                 <div class="form-group">
@@ -102,7 +105,6 @@
                 <i class="fa fa-angle-right"></i>
             </span>
         </a>
-		<!-- Log on to codeastro.com for more projects -->
     </div>
 </div>
 <!-- Banner end -->
@@ -114,8 +116,8 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Featured <span>Cars</span></h1>
-            <p>Amongst many of our available cars, here are some few picks that you might have an interest in.</p>
+            <h1> <span>ماشین های</span> پیشنهادی </h1>
+            <p>درمیان تمامی ماشین های ما، دراینجا لیستی از ماشین هایی است که ممکن است به آنها علاقه داشته باشید.</p>
         </div>
         <!-- Slick slider area start -->
         <div class="slick-slider-area clearfix">
@@ -164,7 +166,6 @@
                                 </div>
                             </div>
                         </div>
-						<!-- Log on to codeastro.com for more projects -->
                         <div class="detail">
                             <h1 class="title">
                                 <a href="{% url 'car_detail' car.id %}">{{ car.car_title }}</a>
@@ -206,7 +207,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Latest <span>Cars</span></h1>
+            <h1>جدیدترین <span>ماشین ها</span></h1>
             <p></p>
         </div>
         <div class="row">
@@ -285,9 +286,7 @@
                     </div>
                 </div>
             </div>
-			<!-- Log on to codeastro.com for more projects -->
           {% endfor %}
-
         </div>
     </div>
 </div>
@@ -299,8 +298,8 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Executive <span>Team</span></h1>
-            <p>Team working behind maintaining the quality of our Car Dealership Website.</p>
+            <h1> <span>تیم</span> اجرایی </h1>
+            <p>تیمی که پشت تمامی موفقیت ها و بالااوردن وبسایت ما هستند.</p>
         </div>
         <!-- Slick slider area start -->
         <div class="slick-slider-area clearfix">
@@ -337,16 +336,15 @@
         <div class="row">
             <div class="col-lg-9 col-md-8 col-sm-12">
                 <div class="intro-text">
-                    <h3>Do You Have Questions ?</h3>
+                    <h3>آیا سوالی دارید؟</h3>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-12">
-                <a href="{% url 'contact' %}" class="btn btn-md">Get in Touch</a>
+                <a href="{% url 'contact' %}" class="btn btn-md">با ما در تماس باشید</a>
             </div>
         </div>
     </div>
 </div>
-<!-- Log on to codeastro.com for more projects -->
 <!-- Intro section end -->
 
 

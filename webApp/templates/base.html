@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>CarDealer Website {% block title %}    {% endblock %}</title>
+    <title>فروشگاه خودرو {% block title %}    {% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -32,7 +32,6 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" >
 
     <!-- Google fonts -->
-	<!-- Log on to codeastro.com for more projects -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
 
 
@@ -60,9 +59,8 @@
     <button type="button" class="close">×</button>
     <form action="{% url 'search' %}" class="search-header">
         <input type="search" value="" placeholder="type keyword(s) here. Eg: audi, benz etc" name='keyword' />
-        <button type="submit" class="btn btn-sm button-theme">Search</button>
+        <button type="submit" class="btn btn-sm button-theme">جست و جو</button>
     </form>
-	<!-- Log on to codeastro.com for more projects -->
 </div>
 
 {% include 'includes/footer.html' %}
