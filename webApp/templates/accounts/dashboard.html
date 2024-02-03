@@ -24,8 +24,8 @@
 <div class="container mt-50 mb-50">
   {% include 'includes/messages.html' %}
 	<div class="main-title" style="text-align:left !important;">
-            <h1>Welcome <span>{{user.first_name}} {{user.last_name}},</span></h1>
-            <p>Here are the list of the cars that you have inquired about:</p>
+            <h1>خوش آمدید <span>{{user.first_name}} {{user.last_name}},</span></h1>
+            <p> در اینجا لیست تمام ماشین هایی که در مورد آنها سوال کرده اید آمده است:</p>
         </div>
         {% if inquiries %}
             <table class="table table-hover table-bordered table-striped">
@@ -52,7 +52,7 @@
             </table><!-- Log on to codeastro.com for more projects -->
         {% else %}
         <div class="alert alert-primary" role="alert">
-          <h4>You have no inquiries!!</h4>
+          <h4>شما هیچ سوالی ندارید!!</h4>
         </div>
           
         {% endif %}

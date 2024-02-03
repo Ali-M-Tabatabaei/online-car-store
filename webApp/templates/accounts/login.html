@@ -7,9 +7,9 @@
 <div class="sub-banner overview-bgi">
     <div class="container breadcrumb-area">
         <div class="breadcrumb-areas">
-            <h1>Login To Your Account</h1>
+            <h1>ورود به حساب کاربری</h1>
             <ul class="breadcrumbs">
-                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">خانه</a></li>
                 <li class="active">Login</li>
             </ul>
         </div>
@@ -28,7 +28,7 @@
                             <img src="{% static 'img/logos/cardealerLogo.png' %}" alt="logo">
                         </a>
                     </div>
-                    <h3>Customer Login Panel</h3>
+                    <h3>پنل ورود مشتری</h3>
                     {% include 'includes/messages.html' %}
                     <form action="{% url 'login' %}" method="POST">
                       {% csrf_token %}
@@ -47,7 +47,7 @@
                             <span><p>Don't have an account? <a href="{% url 'register' %}" class="thembo"> Register here</a></p></span>
                         </div>
                         <div class="clearfix"></div>
-                    
+
                     </form>
                     <!-- Log on to codeastro.com for more projects -->
                 </div>
