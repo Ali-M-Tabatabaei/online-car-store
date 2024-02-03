@@ -5,14 +5,13 @@
 
 {% load humanize %}
 <!-- Sub banner start -->
-<!-- Log on to codeastro.com for more projects -->
 <div class="sub-banner overview-bgi">
     <div class="container breadcrumb-area">
         <div class="breadcrumb-areas">
-            <h1>Our Car Inventory</h1>
+            <h1>مخزن ماشین های ما</h1>
             <ul class="breadcrumbs">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li class="active">Cars</li>
+                <li><a href="{% url 'home' %}">خانه</a></li>
+                <li class="active">ماشین ها</li>
             </ul>
         </div>
     </div>
@@ -32,7 +31,7 @@
                         <div class="car-box-3">
                             <div class="car-thumbnail">
                                 <a href="{% url 'car_detail' car.id %}" class="car-img">
-                                    <div class="tag">For Sale</div>
+                                    <div class="tag">برای فروش</div>
                                     <div class="price-box">
                                         <span>$ {{car.price | intcomma }}</span>
                                     </div>
@@ -140,7 +139,7 @@
                 <div class="sidebar-right">
                     <!-- Advanced search start -->
                     <div class="widget advanced-search2">
-                        <h3 class="sidebar-title">Search Cars</h3>
+                        <h3 class="sidebar-title">جست و جوی ماشین</h3>
                         <form action="{% url 'search' %}" method="">
                             <div class="form-group">
                                 <input type="text" name="keyword" placeholder="Search by name" class="form-control">
@@ -148,7 +147,7 @@
 
                             <div class="form-group">
                                 <select class="form-control search-fields" name="model">
-                                    <option selected="true" disabled="disabled">Model</option>
+                                    <option selected="selected" disabled="disabled">مدل</option>
                                     {% for model in model_search %}
                                       <option value="{{model}}">{{model}}</option>
                                     {% endfor %}
@@ -156,7 +155,7 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control search-fields" name="city">
-                                    <option selected="true" disabled="disabled">Location</option>
+                                    <option selected="true" disabled="disabled">موقعیت مکانی</option>
                                     {% for city in city_search %}
                                       <option value="{{city}}">{{city}}</option>
                                     {% endfor %}
@@ -164,7 +163,7 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control search-fields" name="year">
-                                    <option selected="true" disabled="disabled">Year</option>
+                                    <option selected="true" disabled="disabled">سال</option>
                                     {% for year in year_search %}
                                       <option value="{{year}}">{{year}}</option>
                                     {% endfor %}
@@ -172,7 +171,7 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control search-fields" name="body_style">
-                                    <option selected="true" disabled="disabled">Select Type Of Car</option>
+                                    <option selected="true" disabled="disabled">نوع ماشین را مشخص کنید</option>
                                     {% for body_style in body_style_search %}
                                       <option value="{{body_style}}">{{body_style}}</option>
                                     {% endfor %}
@@ -185,7 +184,7 @@
                                         </div>
                             <div class="form-group">
                                 <button class="btn btn-block button-theme btn-md">
-                                    <i class="fa fa-search"></i> Search
+                                    <i class="fa fa-search"></i> جست و جو
                                 </button>
                             </div>
                         </form>
@@ -193,17 +192,16 @@
 
                     <!-- Question start -->
                     <div class="widget question widget-3">
-                        <h5 class="sidebar-title">Follow Us On:</h5>
+                        <h5 class="sidebar-title">مارا دنبال کنید:</h5>
                         <div class="social-list clearfix">
                             <ul>
-                                <li><a href="https://codeastro.com/" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="rss-bg"><i class="fa fa-rss"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="" class="rss-bg"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
-						<!-- Log on to codeastro.com for more projects -->
                     </div>
                 </div>
             </div>

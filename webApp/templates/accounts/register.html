@@ -7,10 +7,10 @@
 <div class="sub-banner overview-bgi">
     <div class="container breadcrumb-area">
         <div class="breadcrumb-areas">
-            <h1>Register</h1>
+            <h1>ثبت نام</h1>
             <ul class="breadcrumbs">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li class="active">Register</li>
+                <li><a href="{% url 'home' %}">خانه</a></li>
+                <li class="active">ثبت نام</li>
             </ul>
         </div>
     </div>
@@ -26,7 +26,7 @@
                             <img src="{% static 'img/logos/cardealerLogo.png' %}" alt="logo">
                         </a>
                     </div>
-                    <h3>Create an account</h3>
+                    <h3>یک حساب ایجاد کنید</h3>
 
                     {% include 'includes/messages.html' %}
                     <form action="{% url 'register' %}" method="POST">
@@ -56,10 +56,10 @@
                             <i class="flaticon-lock"></i>
                         </div>
                         <div class="form-group mb-0 clearfix">
-                            <button type="submit" class="btn-md btn-success float-left">Register</button>
+                            <button type="submit" class="btn-md btn-success float-left">ثبت نام</button>
                         </div>
                         <div class="extra-login clearfix">
-                            <span><p>Already a member? <a href="{% url 'login' %}" class="thembo"> Login here</a></p></span>
+                            <span><p>آیا عضو هستید؟ <a href="{% url 'login' %}" class="thembo"> ازینجا وارد شوید</a></p></span>
                         </div>
                         <div class="clearfix"></div>
                      
