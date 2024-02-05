@@ -84,7 +84,7 @@
                 </div>
                 <div class="range-slider clearfix">
                                 <label>قیمت</label>
-                                <div data-min="0" data-max="1000000000"  data-min-name="min_price" data-max-name="max_price" data-unit="تومان" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                <div data-min="0" data-max="1000000000"  data-min-name="min_price" data-max-name="max_price" data-unit="$" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                 <div class="clearfix"></div>
                             </div>
                 <div class="form-group">
@@ -129,42 +129,10 @@
                             <a href="{% url 'car_detail' car.id %}" class="car-img">
                                 <div class="tag-2">Featured</div>
                                 <div class="price-box">
-                                    <span>${{car.price | intcomma}}</span>
+                                    <span>${{car.price}}</span>
                                 </div>
                                 <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                             </a>
-                            <div class="carbox-overlap-wrapper">
-                                <div class="overlap-box">
-                                    <div class="overlap-btns-area">
-                                        <div class="car-magnify-gallery">
-                                            <a href="{{car.car_photo.url}}" class="overlap-btn">
-                                                <i class="fa fa-expand"></i>
-                                                <img class="hidden" src="{{car.car_photo.url}}">
-                                            </a>
-                                            {% if car.car_photo_1 %}
-                                            <a href="{{car.car_photo_1.url}}" class="hidden">
-                                                <img class="hidden" src="{{car.car_photo_1.url}}">
-                                            </a>
-                                            {% endif %}
-                                            {% if car.car_photo_2 %}
-                                            <a href="{{car.car_photo_2.url}}" class="hidden">
-                                                <img class="hidden" src="{{car.car_photo_2.url}}">
-                                            </a>
-                                            {% endif %}
-                                            {% if car.car_photo_3 %}
-                                            <a href="{{car.car_photo_3.url}}" class="hidden">
-                                                <img class="hidden" src="{{car.car_photo_3.url}}">
-                                            </a>
-                                            {% endif %}
-                                            {% if car.car_photo_4 %}
-                                            <a href="{{car.car_photo_4.url}}" class="hidden">
-                                                <img class="hidden" src="{{car.car_photo_4.url}}">
-                                            </a>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="detail">
                             <h1 class="title">
@@ -233,7 +201,7 @@
                             </div>
                         </a>
 						<!-- Log on to codeastro.com for more projects -->
-                        <div class="carbox-overlap-wrapper">
+                        <!-- <div class="carbox-overlap-wrapper">
                             <div class="overlap-box">
                                 <div class="overlap-btns-area">
                                     <div class="car-magnify-gallery">
@@ -264,7 +232,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="detail">
                         <h1 class="title">

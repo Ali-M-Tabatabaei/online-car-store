@@ -3,6 +3,7 @@
 {% block title %} | Dashboard {% endblock %}
 {% block content %}
 
+{% load humanize %}
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="container breadcrumb-area">
@@ -23,26 +24,26 @@
   {% include 'includes/messages.html' %}
 	<ul class="nav nav-tabs justify-content-start flex-row-reverse">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">سوالات</a>
+      <a class="nav-link active" data-toggle="tab" href="#menu1">سوالات</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">خودرو های من</a>
+      <a class="nav-link" data-toggle="tab" href="#menu2">خودرو های من</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2">خودرو های فروشی</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu3">خودرو های فروشی</a>
+      <a class="nav-link" data-toggle="tab" href="#menu3">خودرو های خریداری شده</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu4">خودرو های فروشی</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu5">خودرو های فروشی</a>
     </li>
   </ul>
   
   <!-- Tab panes -->
   <div class="tab-content mt-50">
-    <div class="tab-pane container fade active show" id="home">
-      <div class="main-title text-right" style="">
+    <div class="tab-pane container fade active show" id="menu1">
+      <div class="main-title text-right">
         <h1>خوش آمدید <span>{{user.first_name}} {{user.last_name}},</span></h1>
         <p> در اینجا لیست تمام ماشین هایی که در مورد آنها سوال کرده اید آمده است:</p>
       </div>
@@ -78,10 +79,86 @@
 
     </div>
 
-    <div class="tab-pane container fade" id="menu1">...</div>
-    <div class="tab-pane container fade" id="menu2">...</div>
-    <div class="tab-pane container fade" id="menu3">...</div>
+    <div class="tab-pane container fade" id="menu2">
+      <div class="row">
+        {% for car in cars %}
+          <div class="col-lg-6 col-md-6">
+              <div class="car-box-3">
+                  <div class="car-thumbnail">
+                      <a href="{% url 'car_detail' car.id %}" class="car-img">
+                          <div class="tag">برای فروش</div>
+                          <div class="price-box">
+                              <span>$ {{car.price | intcomma }}</span>
+                          </div>
+                          <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car"  style="min-height: 262px; max-height: 262px;">
+                      </a>
+                  </div>
+    <!-- Log on to codeastro.com for more projects -->
+                  <div class="detail">
+                      <h1 class="title">
+                          <a href="{% url 'car_detail' car.id %}">{{car.car_title}}</a>
+                      </h1>
+                      <div class="location">
+                          <a href="{% url 'car_detail' car.id %}">
+                              <i class="flaticon-pin"></i>{{car.state}}, {{car.city}}
+                          </a>
+                      </div>
+                      <ul class="facilities-list clearfix">
+                          <li>{{car.fuel_type}}</li>
+                          <li>{{car.miles | intcomma }} miles</li>
+                          <li>{{car.transmission}}</li>
+                          <li>{{car.body_style}}</li>
+                          <li>{{car.color}}</li>
+                          <li>{{car.year}}</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+  {% endfor %}
+
+
+
+      </div>
+    </div>
+    <div class="tab-pane container fade" id="menu3">
+      <div class="row">
+        {% for car in cars1 %}
+          <div class="col-lg-6 col-md-6">
+              <div class="car-box-3">
+                  <div class="car-thumbnail">
+                      <a href="{% url 'car_detail' car.car.id %}" class="car-img">
+                          <div class="tag">برای فروش</div>
+                          <div class="price-box">
+                              <span>$ {{car.car.price | intcomma }}</span>
+                          </div>
+                          <img class="d-block w-100" src="{{car.car.car_photo.url}}" alt="car"  style="min-height: 262px; max-height: 262px;">
+                      </a>
+                  </div>
+                  <div class="detail">
+                      <h1 class="title">
+                          <a href="{% url 'car_detail' car.car.id %}">{{car.car.car_title}}</a>
+                      </h1>
+                      <div class="location">
+                          <a href="{% url 'car_detail' car.car.id %}">
+                              <i class="flaticon-calendar"></i> {{car.date}}
+                          </a>
+                      </div>
+                      <ul class="facilities-list clearfix">
+                          <li>{{car.car.fuel_type}}</li>
+                          <li>{{car.car.miles | intcomma }} miles</li>
+                          <li>{{car.car.transmission}}</li>
+                          <li>{{car.car.body_style}}</li>
+                          <li>{{car.car.color}}</li>
+                          <li>{{car.car.year}}</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+  {% endfor %}
+      </div>
+    </div>
     <div class="tab-pane container fade" id="menu4">...</div>
+    <div class="tab-pane container fade" id="menu5">...</div>
   </div>
 </div>
 
