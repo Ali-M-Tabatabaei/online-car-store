@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Car
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-
+from accounts.models import Cart, Purchased
 
 # Create your views here.
 def cars(request):
@@ -83,3 +83,19 @@ def search(request):
         'transmission_search': transmission_search,
     }
     return render(request, 'cars/search.html', data)
+
+
+def add_to_cart(request, id):
+    user = request.user
+    car = Car.objects.get(id=id)
+    if user:
+        cart = Cart()
+        cart.user = user
+        cart.car = car
+        cart.save()
+        purchased = Purchased()
+        purchased.user = user
+        purchased.car = car
+        purchased.save()
+    
+    return redirect('home')
