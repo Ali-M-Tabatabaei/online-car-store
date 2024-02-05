@@ -32,7 +32,7 @@
       <a class="nav-link" data-toggle="tab" href="#menu2">خودرو های من</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu3">خودرو های فروشی</a>
+      <a class="nav-link" data-toggle="tab" href="#menu3">خودرو های خریداری شده</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu4">خودرو های فروشی</a>
@@ -122,7 +122,43 @@
 
       </div>
     </div>
-    <div class="tab-pane container fade" id="menu3"></div>
+    <div class="tab-pane container fade" id="menu3">
+      <div class="row">
+        {% for car in cars1 %}
+          <div class="col-lg-6 col-md-6">
+              <div class="car-box-3">
+                  <div class="car-thumbnail">
+                      <a href="{% url 'car_detail' car.car.id %}" class="car-img">
+                          <div class="tag">برای فروش</div>
+                          <div class="price-box">
+                              <span>$ {{car.car.price | intcomma }}</span>
+                          </div>
+                          <img class="d-block w-100" src="{{car.car.car_photo.url}}" alt="car"  style="min-height: 262px; max-height: 262px;">
+                      </a>
+                  </div>
+                  <div class="detail">
+                      <h1 class="title">
+                          <a href="{% url 'car_detail' car.car.id %}">{{car.car.car_title}}</a>
+                      </h1>
+                      <div class="location">
+                          <a href="{% url 'car_detail' car.car.id %}">
+                              <i class="flaticon-calendar"></i> {{car.date}}
+                          </a>
+                      </div>
+                      <ul class="facilities-list clearfix">
+                          <li>{{car.car.fuel_type}}</li>
+                          <li>{{car.car.miles | intcomma }} miles</li>
+                          <li>{{car.car.transmission}}</li>
+                          <li>{{car.car.body_style}}</li>
+                          <li>{{car.car.color}}</li>
+                          <li>{{car.car.year}}</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+  {% endfor %}
+      </div>
+    </div>
     <div class="tab-pane container fade" id="menu4">...</div>
     <div class="tab-pane container fade" id="menu5">...</div>
   </div>

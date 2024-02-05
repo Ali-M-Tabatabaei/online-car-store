@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from contacts.models import Contact
 from django.contrib.auth.decorators import login_required
 from cars.models import Car
-from . models import Own
+from . models import *
 
 # Create your views here.
 
@@ -59,15 +59,20 @@ def register(request):
 @login_required(login_url = 'login')
 def dashboard(request):
     user_cars = Own.objects.filter(user_id=request.user.id)
-    cars = []
+    own = []
     for i in user_cars:
-        cars.append(i.car)
+        own.append(i.car)
     user_inquiry = Contact.objects.order_by('-create_date').filter(user_id=request.user.id)
 
+    user_purchased_cars = Purchased.objects.filter(user_id=request.user.id)
+    purchased_cars = []
+    for i in user_purchased_cars:
+        purchased_cars.append(i.car)
 
     data = {
         'inquiries': user_inquiry,
-        'cars': cars
+        'cars': own,
+        'cars1': user_purchased_cars
     }
     return render(request, 'accounts/dashboard.html', data)
 
