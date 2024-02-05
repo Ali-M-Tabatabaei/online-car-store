@@ -33,7 +33,7 @@
       <a class="nav-link" data-toggle="tab" href="#menu3">خودرو های خریداری شده</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu4">خودرو های فروشی</a>
+      <a class="nav-link" data-toggle="tab" href="#menu4">سبد خرید</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu5">خودرو های فروشی</a>
@@ -157,7 +157,50 @@
   {% endfor %}
       </div>
     </div>
-    <div class="tab-pane container fade" id="menu4">...</div>
+    <div class="tab-pane container fade" id="menu4">
+      <div class="main-title text-right">
+        <h2>مبلغ کل: {{ total_price }}</h2>
+      </div>
+      <div class="row">
+        {% for car in cart_cars %}
+          <div class="col-lg-6 col-md-6">
+              <div class="car-box-3">
+                  <div class="car-thumbnail">
+                      <a href="{% url 'car_detail' car.id %}" class="car-img">
+                          <div class="tag">برای فروش</div>
+                          <div class="price-box">
+                              <span>$ {{car.price | intcomma }}</span>
+                          </div>
+                          <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car"  style="min-height: 262px; max-height: 262px;">
+                      </a>
+                  </div>
+    <!-- Log on to codeastro.com for more projects -->
+                  <div class="detail">
+                      <h1 class="title">
+                          <a href="{% url 'car_detail' car.id %}">{{car.car_title}}</a>
+                      </h1>
+                      <div class="location">
+                          <a href="{% url 'car_detail' car.id %}">
+                              <i class="flaticon-pin"></i>{{car.state}}, {{car.city}}
+                          </a>
+                      </div>
+                      <ul class="facilities-list clearfix">
+                          <li>{{car.fuel_type}}</li>
+                          <li>{{car.miles | intcomma }} miles</li>
+                          <li>{{car.transmission}}</li>
+                          <li>{{car.body_style}}</li>
+                          <li>{{car.color}}</li>
+                          <li>{{car.year}}</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+  {% endfor %}
+
+
+
+      </div>
+    </div>
     <div class="tab-pane container fade" id="menu5">...</div>
   </div>
 </div>

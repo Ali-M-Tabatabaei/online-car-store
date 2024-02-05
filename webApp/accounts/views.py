@@ -65,19 +65,25 @@ def dashboard(request):
     user_inquiry = Contact.objects.order_by('-create_date').filter(user_id=request.user.id)
 
     user_purchased_cars = Purchased.objects.filter(user_id=request.user.id)
-    purchased_cars = []
-    for i in user_purchased_cars:
-        purchased_cars.append(i.car)
+
+    cart = Cart.objects.filter(user_id = request.user.id)
+    total_price = 0
+    cart_cars = []
+    for i in cart:
+        cart_cars.append(i.car)
+        total_price += i.car.price
 
     data = {
         'inquiries': user_inquiry,
         'cars': own,
-        'cars1': user_purchased_cars
+        'cars1': user_purchased_cars,
+        'cart_cars':cart_cars,
+        'total_price':total_price
     }
     return render(request, 'accounts/dashboard.html', data)
 
 def logout(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         auth.logout(request)
         return redirect('home')
     return redirect('home')

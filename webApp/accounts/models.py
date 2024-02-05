@@ -11,3 +11,7 @@ class Purchased(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE, unique=True)
     date = models.DateTimeField(auto_now_add=True)
+
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, unique=True)
