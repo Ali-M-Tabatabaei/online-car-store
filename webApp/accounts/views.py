@@ -74,6 +74,7 @@ def dashboard(request):
         total_price += i.car.price
 
     data = {
+        'user':request.user,
         'inquiries': user_inquiry,
         'cars': own,
         'cars1': user_purchased_cars,
@@ -87,3 +88,19 @@ def logout(request):
         auth.logout(request)
         return redirect('home')
     return redirect('home')
+
+def cancle_cart(request):
+    Cart.objects.filter(user_id=request.user.id).delete()
+    return redirect('dashboard')
+
+
+def confirm_cart(request):
+    cart = Cart.objects.filter(user_id = request.user.id)
+    for i in cart:
+        o = Own()
+        o.user = i.user
+        o.car = i.car
+        o.save()
+    
+    cart.delete()
+    return redirect('dashboard')
