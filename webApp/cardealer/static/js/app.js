@@ -9,19 +9,19 @@ $(function () {
             $(".page_loader").fadeOut("fast");
         }, 100);
 
-        if ($('body .filter-portfolio').length > 0) {
-            $(function () {
-                $('.filter-portfolio').filterizr(
-                    {
-                        delay: 0
-                    }
-                );
-            });
-            $('.filteriz-navigation li').on('click', function () {
-                $('.filteriz-navigation .filtr').removeClass('active');
-                $(this).addClass('active');
-            });
-        }
+        // if ($('body .filter-portfolio').length > 0) {
+        //     $(function () {
+        //         $('.filter-portfolio').filterizr(
+        //             {
+        //                 delay: 0
+        //             }
+        //         );
+        //     });
+        //     $('.filteriz-navigation li').on('click', function () {
+        //         $('.filteriz-navigation .filtr').removeClass('active');
+        //         $(this).addClass('active');
+        //     });
+        // }
     });
 
 
