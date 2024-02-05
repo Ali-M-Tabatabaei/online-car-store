@@ -149,7 +149,7 @@ $(function () {
 
     // $("#carouselExampleIndicators").hover($(this).carousel("cycle"))
 
-    // Page scroller initialization.
+    
     $.scrollUp({
         scrollName: 'page_scroller',
         scrollDistance: 300,
@@ -194,32 +194,6 @@ $(function () {
         });
     });
 
-
-    // Countdown activation
-    $( function() {
-        // Add background image
-        //$.backstretch('../img/nature.jpg');
-        var endDate = "December  27, 2019 15:03:25";
-        $('.countdown.simple').countdown({ date: endDate });
-        $('.countdown.styled').countdown({
-            date: endDate,
-            render: function(data) {
-                $(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>Days</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>Hours</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>Minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>Seconds</span></div>");
-            }
-        });
-        $('.countdown.callback').countdown({
-            date: +(new Date) + 10000,
-            render: function(data) {
-                $(this.el).text(this.leadingZeros(data.sec, 2) + " sec");
-            },
-            onEnd: function() {
-                $(this.el).addClass('ended');
-            }
-        }).on("click", function() {
-            $(this).removeClass('ended').data('countdown').update(+(new Date) + 10000).start();
-        });
-
-    });
 
     $(".range-slider-ui").each(function () {
         var minRangeValue = $(this).attr('data-min');

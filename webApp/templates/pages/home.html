@@ -184,7 +184,6 @@
                 <div class="car-box">
                     <div class="car-thumbnail">
                         <a href="{% url 'car_detail' car.id %}" class="car-img">
-                            <div class="tag">For Sale</div>
                             <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                             <div class="facilities-list clearfix">
                                 <ul>
@@ -200,39 +199,7 @@
                                 </ul>
                             </div>
                         </a>
-						<!-- Log on to codeastro.com for more projects -->
-                        <!-- <div class="carbox-overlap-wrapper">
-                            <div class="overlap-box">
-                                <div class="overlap-btns-area">
-                                    <div class="car-magnify-gallery">
-                                        <a href="{{car.car_photo.url}}" class="overlap-btn">
-                                            <i class="fa fa-expand"></i>
-                                            <img class="hidden" src="{{car.car_photo.url}}">
-                                        </a>
-                                        {% if car.car_photo_1 %}
-                                        <a href="{{car.car_photo_1.url}}" class="hidden">
-                                            <img class="hidden" src="{{car.car_photo_1.url}}">
-                                        </a>
-                                        {% endif %}
-                                        {% if car.car_photo_2 %}
-                                        <a href="{{car.car_photo_2.url}}" class="hidden">
-                                            <img class="hidden" src="{{car.car_photo_2.url}}">
-                                        </a>
-                                        {% endif %}
-                                        {% if car.car_photo_3 %}
-                                        <a href="{{car.car_photo_3.url}}" class="hidden">
-                                            <img class="hidden" src="{{car.car_photo_3.url}}">
-                                        </a>
-                                        {% endif %}
-                                        {% if car.car_photo_4 %}
-                                        <a href="{{car.car_photo_4.url}}" class="hidden">
-                                            <img class="hidden" src="{{car.car_photo_4.url}}">
-                                        </a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+						
                     </div>
                     <div class="detail">
                         <h1 class="title">
