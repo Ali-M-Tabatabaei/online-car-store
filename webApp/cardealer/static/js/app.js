@@ -142,10 +142,12 @@ $(function () {
     }
 
 
-    $("#carouselExampleIndicators").carousel({
-        interval: 7000,
-        pasue: "false"
-    });
+    // $("#carouselExampleIndicators").carousel({
+    //     interval: 1000,
+    //     pasue: "false"
+    // });
+
+    // $("#carouselExampleIndicators").hover($(this).carousel("cycle"))
 
     // Page scroller initialization.
     $.scrollUp({
