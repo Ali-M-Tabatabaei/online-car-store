@@ -11,4 +11,5 @@ urlpatterns = [
     path('for-sale/<int:id>', views.for_sale, name='for_sale'),
     path('cancle-sale/<int:id>',  views.cancle_sale, name="cancle_sale"),
     path('cancle-from-cart/<int:id>',  views.cancle_from_cart, name="cancle_from_cart"),
+    path('add_car', views.add_car, name="add_car"),
 ]

@@ -5,6 +5,7 @@ from contacts.models import Contact
 from django.contrib.auth.decorators import login_required
 from cars.models import Car
 from . models import *
+from django.core.files import File
 
 # Create your views here.
 
@@ -148,3 +149,26 @@ def cancle_sale(request, id):
 def cancle_from_cart(request, id):
     Cart.objects.get(car_id=id).delete()
     return redirect("dashboard")
+
+
+def add_car(request):
+    car = Car()
+    car.car_title = request.POST['car_title']
+    car.city = request.POST['city']
+    car.color = request.POST['color']
+    car.price = request.POST['price']
+    image = request.FILES['img']
+    # print(image.name, "*****************")
+    car.car_photo.save(image.name, image)
+    car.engine = request.POST['engine']
+    # print(request.POST['miles'], "*************")
+    car.miles = int(request.POST['miles'])
+
+    car.fuel_type = request.POST['fuel_type']
+    car.save()
+
+    o = Own()
+    o.user = request.user
+    o.car = car
+    o.save()
+    return redirect('dashboard')

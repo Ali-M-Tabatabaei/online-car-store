@@ -41,6 +41,9 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu6">خودرو های فروخته شده</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu7">افزودن</a>
+    </li>
   </ul>
   
   <!-- Tab panes -->
@@ -308,6 +311,60 @@
         <h4 class="text-right">!!شما هیچ خودرویی نفروخته اید</h4>
       </div>
       {% endif %}
+    </div>
+
+    <div class="tab-pane container fade" id="menu7">
+      <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-section">
+                    
+                    <h3>ثبت خودرو</h3>
+
+                    {% include 'includes/messages.html' %}
+                    <form action="{% url 'add_car' %}" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                        <div class="form-group form-box">
+                            <input type="text" name="car_title" class="input-text w-50" placeholder="عنوان خودرو" required>
+                            <!-- <i class="fa fa-user"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="city" class="input-text w-50" placeholder="شهر" required>
+                            <!-- <i class="fa fa-user"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="color" class="input-text w-50" placeholder="رنگ" required>
+                            <!-- <i class="fa fa-user"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="number" name="price" class="input-text w-50" placeholder="قیمت" required>
+                            <!-- <i class="flaticon-mail"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="file" name="img" class="input-text w-50" required>
+                            <!-- <i class="flaticon-lock"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="engine" class="input-text w-50" placeholder="موتور" required>
+                            <!-- <i class="flaticon-lock"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                          <input type="number" name="miles" class="input-text w-50" placeholder="مایل" required>
+                          <!-- <i class="flaticon-lock"></i> -->
+                      </div>
+                      <div class="form-group form-box">
+                        <input type="text" name="fuel_type" class="input-text w-50" placeholder="نوع سوخت" required>
+                        <!-- <i class="flaticon-lock"></i> -->
+                    </div>
+                        <div class="form-group mb-0 clearfix">
+                            <button type="submit" class="btn-md btn-success">ثبت</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
   </div>
 </div>
