@@ -44,6 +44,9 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu7">افزودن</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu8">ویرایش</a>
+    </li>
   </ul>
   
   <!-- Tab panes -->
@@ -94,6 +97,7 @@
                   <div class="car-thumbnail">
                       <a href="{% url 'car_detail' car.id %}" class="car-img">
                           <a class="tag" href="{% url 'for_sale' car.id %}">برای فروش</a>
+                          <!-- <a class="tag" href="{% url 'for_sale' car.id %}">برای فروش</a> -->
                           <div class="price-box">
                               <span>$ {{car.price | intcomma }}</span>
                           </div>
@@ -117,6 +121,7 @@
                           <li>{{car.color}}</li>
                           <li>{{car.year}}</li>
                       </ul>
+                      <a href="{% url 'delete_car' car.id %}" class="btn btn-danger btn-block mt-5">حذف</a>
                   </div>
               </div>
           </div>
@@ -354,6 +359,68 @@
                       </div>
                       <div class="form-group form-box">
                         <input type="text" name="fuel_type" class="input-text w-50" placeholder="نوع سوخت" required>
+                        <!-- <i class="flaticon-lock"></i> -->
+                    </div>
+                        <div class="form-group mb-0 clearfix">
+                            <button type="submit" class="btn-md btn-success">ثبت</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="tab-pane container fade" id="menu8">
+      <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-section">
+                    
+                    <h3>ویرایش خودرو</h3>
+
+                    {% include 'includes/messages.html' %}
+                    <form action="{% url 'update_car' %}" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form-group form-box">
+                        <select name="id" class="w-50 mt-5">
+                          {% for car in cars %}
+                            <option value="{{ car.id }}">{{ car.id }}</option>
+                          {% endfor %}
+                        </select>
+                        <!-- <i class="fa fa-user"></i> -->
+                    </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="car_title" class="input-text w-50" placeholder="عنوان خودرو">
+                            <!-- <i class="fa fa-user"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="city" class="input-text w-50" placeholder="شهر">
+                            <!-- <i class="fa fa-user"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="color" class="input-text w-50" placeholder="رنگ">
+                            <!-- <i class="fa fa-user"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="number" name="price" class="input-text w-50" placeholder="قیمت">
+                            <!-- <i class="flaticon-mail"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="file" name="img" class="input-text w-50" >
+                            <!-- <i class="flaticon-lock"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="engine" class="input-text w-50" placeholder="موتور">
+                            <!-- <i class="flaticon-lock"></i> -->
+                        </div>
+                        <div class="form-group form-box">
+                          <input type="number" name="miles" class="input-text w-50" placeholder="مایل">
+                          <!-- <i class="flaticon-lock"></i> -->
+                      </div>
+                      <div class="form-group form-box">
+                        <input type="text" name="fuel_type" class="input-text w-50" placeholder="نوع سوخت">
                         <!-- <i class="flaticon-lock"></i> -->
                     </div>
                         <div class="form-group mb-0 clearfix">

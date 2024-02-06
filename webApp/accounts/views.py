@@ -172,3 +172,41 @@ def add_car(request):
     o.car = car
     o.save()
     return redirect('dashboard')
+
+
+def delete_car(request, id):
+    car = Car.objects.get(id=id).delete()
+    return redirect('dashboard')
+    # Own.objects.get(car_id=id)
+    # ForSale.objects.get(car_id)
+
+def update_car(request):
+    car = Car.objects.get(id=request.POST['id'])
+    if request.POST['car_title']:
+        car.car_title = request.POST['car_title']
+    
+    if request.POST['city']:
+        car.city = request.POST['city']
+    
+    if request.POST['color']:
+        car.color = request.POST['color']
+    
+    if request.POST['price']:
+        car.price = request.POST['price']
+    
+    if request.FILES.get('img', None) != None:
+        image = request.FILES['img']
+        car.car_photo.save(image.name, image)
+    
+    if request.POST['engine']:
+        car.engine = request.POST['engine']
+    
+    if request.POST['miles']:
+        car.miles = request.POST['miles']
+    
+    if request.POST['fuel_type']:
+        car.fuel_type = request.POST['fuel_type']
+    
+    car.save()
+
+    return redirect('dashboard')
