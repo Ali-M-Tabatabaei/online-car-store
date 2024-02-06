@@ -117,6 +117,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="two-tab" data-toggle="tab" href="#three" role="tab" aria-controls="two" aria-selected="false">ثبت نظر</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#four" role="tab" aria-controls="two" aria-selected="false">نظرات</a>
+                            </li>
                         </ul>
                         <div class="tab-content" id="carTabContent">
                             <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
@@ -168,7 +171,37 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="two-tab">
+                                {% if comments %}
+        <table class="table table-hover table-bordered table-striped">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">نام کاربری</th>
+            <th scope="col">پیام</th>
+            <th scope="col">تاریخ</th>
+          </tr>
+          </thead>
+          <tbody>
 
+          {% for comment in comments %}
+            <tr>
+              <!-- <th scope="row">{{ forloop.counter }}</th> -->
+              <th scope="row">1</th>
+              <td>{{username}}</td>
+              <td>{{comment.message}}</td>
+              <td>{{ comment.date }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table><!-- Log on to codeastro.com for more projects -->
+    {% else %}
+    <div class="alert alert-primary text-right" role="alert">
+      <h4 class="text-right">هیچ نظری ثبت نشده</h4>
+    </div>
+      
+    {% endif %}
+                            </div>
                         </div>
                     </div>
 

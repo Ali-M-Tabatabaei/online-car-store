@@ -32,9 +32,11 @@ def cars(request):
 
 def car_detail(request, id):
     single_car = get_object_or_404(Car, pk=id)
-
+    commments = Comment.objects.filter(car_id=id, isAdmitted=True)
     data = {
         'single_car': single_car,
+        'comments':commments,
+        'username':request.user.username
     }
     return render(request, 'cars/car_detail.html', data)
 
