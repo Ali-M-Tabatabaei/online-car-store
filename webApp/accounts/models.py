@@ -24,3 +24,4 @@ class Sold(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+

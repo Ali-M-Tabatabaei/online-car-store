@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 from ckeditor.fields import RichTextField
 from multiselectfield import MultiSelectField
-
+from django.contrib.auth.models import User
 # Create your models here.
 class Car(models.Model):
 
@@ -119,3 +119,11 @@ class Car(models.Model):
 
     def __str__(self):
         return self.car_title
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    isAdmitted = models.BooleanField(default=False)

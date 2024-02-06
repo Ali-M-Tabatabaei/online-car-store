@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Car
+from .models import Car, Comment
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from accounts.models import Cart, Purchased
 from accounts.models import ForSale
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def cars(request):
@@ -103,3 +104,17 @@ def add_to_cart(request, id):
         cart.save()
     
     return redirect('car_detail', id)
+
+@login_required(login_url="/accounts/login")
+def comment(request, id):
+    if request.method == 'POST':
+        message = request.POST["message"]
+        user = request.user
+        c = Comment()
+        c.user = user
+        c.message = message
+        car = Car.objects.get(id=id)
+        c.car = car
+        c.save()
+    return redirect('car_detail', id)
+    

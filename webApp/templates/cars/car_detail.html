@@ -112,7 +112,10 @@
                                 <a class="nav-link active show" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="false">اطلاعات خودرو</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Features</a>
+                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">امکانات</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#three" role="tab" aria-controls="two" aria-selected="false">ثبت نظر</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="carTabContent">
@@ -140,6 +143,28 @@
                                         </div>
 
 
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="three" role="tabpanel" aria-labelledby="two-tab">
+                                <div class="row text-center">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-section">
+                                            
+                                            <h3>ثبت نظر</h3>
+                        
+                                            {% include 'includes/messages.html' %}
+                                            <form action="{% url 'comment' single_car.id %}" method="POST">
+                                              {% csrf_token %}
+                                                <div class="form-group form-box">
+                                                    <textarea type="text" name="message" class="input-text w-50" placeholder="پیام" required></textarea>
+                                                </div>
+                                                <div class="form-group mb-0 clearfix">
+                                                    <button type="submit" class="btn-md btn-success">ثبت نام</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
