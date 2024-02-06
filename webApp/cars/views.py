@@ -2,10 +2,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Car
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from accounts.models import Cart, Purchased
+from accounts.models import ForSale
 
 # Create your views here.
 def cars(request):
-    cars = Car.objects.order_by('-created_date')
+    for_sale_cars = ForSale.objects.all()
+    cars = []
+    for i in for_sale_cars:
+        cars.append(i.car)
     paginator = Paginator(cars, 4)
     page = request.GET.get('page')
     paged_cars = paginator.get_page(page)
@@ -74,8 +78,12 @@ def search(request):
         if max_price:
             cars = cars.filter(price__gte=min_price, price__lte=max_price)
 
+    new_cars = []
+    for car in cars:
+        if ForSale.objects.filter(car_id=car.id).exists():
+            new_cars.append(car)
     data = {
-        'cars': cars,
+        'cars': new_cars,
         'model_search': model_search,
         'city_search': city_search,
         'year_search': year_search,
@@ -93,9 +101,5 @@ def add_to_cart(request, id):
         cart.user = user
         cart.car = car
         cart.save()
-        purchased = Purchased()
-        purchased.user = user
-        purchased.car = car
-        purchased.save()
     
-    return redirect('home')
+    return redirect('car_detail', id)

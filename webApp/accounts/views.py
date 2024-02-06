@@ -73,13 +73,26 @@ def dashboard(request):
         cart_cars.append(i.car)
         total_price += i.car.price
 
+    forSale = ForSale.objects.filter(user_id=request.user.id)
+    cars_for_sale = []
+
+    for i in forSale:
+        cars_for_sale.append(i.car)
+
+    sold = Sold.objects.filter(user_id=request.user.id)
+    sold_cars = []
+    for i in sold:
+        sold_cars.append(i.car)
+
     data = {
         'user':request.user,
         'inquiries': user_inquiry,
         'cars': own,
         'cars1': user_purchased_cars,
         'cart_cars':cart_cars,
-        'total_price':total_price
+        'total_price':total_price,
+        'cars_for_sale': cars_for_sale,
+        'sold': sold_cars
     }
     return render(request, 'accounts/dashboard.html', data)
 
@@ -96,11 +109,42 @@ def cancle_cart(request):
 
 def confirm_cart(request):
     cart = Cart.objects.filter(user_id = request.user.id)
+
     for i in cart:
+        seler = ForSale.objects.get(car_id=i.car.id)
+        sold = Sold()
+        sold.user = seler.user
+        sold.car = seler.car
+        sold.save()
+        seler.delete()
+        Own.objects.filter(car_id=i.car.id).delete()
         o = Own()
         o.user = i.user
         o.car = i.car
         o.save()
+        p = Purchased()
+        p.user = i.user
+        p.car = i.car
+        p.save()
     
     cart.delete()
     return redirect('dashboard')
+
+
+def for_sale(request, id):
+    user = request.user
+    car = Car.objects.get(id=id)
+    forSale = ForSale()
+    forSale.user = user
+    forSale.car = car
+    forSale.save()
+    return redirect("dashboard")
+
+def cancle_sale(request, id):
+    ForSale.objects.get(car_id=id).delete()
+    return redirect("dashboard")
+
+
+def cancle_from_cart(request, id):
+    Cart.objects.get(car_id=id).delete()
+    return redirect("dashboard")

@@ -4,21 +4,31 @@ from cars.models import Car
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.contrib import messages
-
+from accounts.models import ForSale
 # Create your views here.
 
 def home(request):
     teams = Team.objects.all()
     featured_cars = Car.objects.order_by('-created_date').filter(is_featured=True)
+    for_sale_featured_cars = []
+    for car in featured_cars:
+        if ForSale.objects.filter(car_id=car.id).exists():
+            for_sale_featured_cars.append(car)
+
     all_cars = Car.objects.order_by('-created_date')
+    for_sale_cars = []
+    for car in all_cars:
+        if ForSale.objects.filter(car_id=car.id).exists():
+            for_sale_cars.append(car)
+
     model_search = Car.objects.values_list('model', flat=True).distinct()
     city_search = Car.objects.values_list('city', flat=True).distinct()
     year_search = Car.objects.values_list('year', flat=True).distinct()
     body_style_search = Car.objects.values_list('body_style', flat=True).distinct()
     data = {
         'teams': teams,
-        'featured_cars': featured_cars,
-        'all_cars': all_cars,
+        'featured_cars': for_sale_featured_cars,
+        'all_cars': for_sale_cars,
         'model_search': model_search,
         'city_search': city_search,
         'year_search': year_search,

@@ -38,6 +38,9 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu5">خودرو های فروشی</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu6">خودرو های فروخته شده</a>
+    </li>
   </ul>
   
   <!-- Tab panes -->
@@ -87,7 +90,7 @@
               <div class="car-box-3">
                   <div class="car-thumbnail">
                       <a href="{% url 'car_detail' car.id %}" class="car-img">
-                          <div class="tag">برای فروش</div>
+                          <a class="tag" href="{% url 'for_sale' car.id %}">برای فروش</a>
                           <div class="price-box">
                               <span>$ {{car.price | intcomma }}</span>
                           </div>
@@ -114,7 +117,7 @@
                   </div>
               </div>
           </div>
-  {% endfor %}
+      {% endfor %}
 
 
 
@@ -133,7 +136,7 @@
               <div class="car-box-3">
                   <div class="car-thumbnail">
                       <a href="{% url 'car_detail' car.car.id %}" class="car-img">
-                          <div class="tag">برای فروش</div>
+                          <!-- <div class="tag">برای فروش</div> -->
                           <div class="price-box">
                               <span>$ {{car.car.price | intcomma }}</span>
                           </div>
@@ -180,7 +183,7 @@
               <div class="car-box-3">
                   <div class="car-thumbnail">
                       <a href="{% url 'car_detail' car.id %}" class="car-img">
-                          <div class="tag">برای فروش</div>
+                          <a class="tag" href="{% url 'cancle_from_cart' car.id %}">حذف از سبد خرید</a>
                           <div class="price-box">
                               <span>$ {{car.price | intcomma }}</span>
                           </div>
@@ -214,7 +217,98 @@
 
       </div>
     </div>
-    <div class="tab-pane container fade" id="menu5">...</div>
+    <div class="tab-pane container fade" id="menu5">
+      {% if cars_for_sale %}
+      <div class="row">
+        {% for car in cars_for_sale %}
+          <div class="col-lg-6 col-md-6">
+              <div class="car-box-3">
+                  <div class="car-thumbnail">
+                      <a href="{% url 'car_detail' car.id %}" class="car-img">
+                          <a class="tag" href="{% url 'cancle_sale' car.id %}">لغو فروش</a>
+                          <div class="price-box">
+                              <span>$ {{car.price | intcomma }}</span>
+                          </div>
+                          <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car"  style="min-height: 262px; max-height: 262px;">
+                      </a>
+                  </div>
+                  <div class="detail">
+                      <h1 class="title">
+                          <a href="{% url 'car_detail' car.id %}">{{car.car_title}}</a>
+                      </h1>
+                      <div class="location">
+                          <a href="{% url 'car_detail' car.id %}">
+                              <i class="flaticon-pin"></i>{{car.state}}, {{car.city}}
+                          </a>
+                      </div>
+                      <ul class="facilities-list clearfix">
+                          <li>{{car.fuel_type}}</li>
+                          <li>{{car.miles | intcomma }} miles</li>
+                          <li>{{car.transmission}}</li>
+                          <li>{{car.body_style}}</li>
+                          <li>{{car.color}}</li>
+                          <li>{{car.year}}</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+
+
+
+      </div>
+      {% else %}
+      <div class="alert alert-primary text-right" role="alert">
+        <h4 class="text-right">!!شما هیچ خودرویی برای فروش ندارید</h4>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="tab-pane container fade" id="menu6">
+      {% if sold %}
+      <div class="row">
+        {% for car in sold %}
+          <div class="col-lg-6 col-md-6">
+              <div class="car-box-3">
+                  <div class="car-thumbnail">
+                      <a href="{% url 'car_detail' car.id %}" class="car-img">
+                          <div class="price-box">
+                              <span>$ {{car.price | intcomma }}</span>
+                          </div>
+                          <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car"  style="min-height: 262px; max-height: 262px;">
+                      </a>
+                  </div>
+                  <div class="detail">
+                      <h1 class="title">
+                          <a href="{% url 'car_detail' car.id %}">{{car.car_title}}</a>
+                      </h1>
+                      <div class="location">
+                          <a href="{% url 'car_detail' car.id %}">
+                              <i class="flaticon-calendar"></i> {{car.date}}
+                          </a>
+                      </div>
+                      <ul class="facilities-list clearfix">
+                          <li>{{car.fuel_type}}</li>
+                          <li>{{car.miles | intcomma }} miles</li>
+                          <li>{{car.transmission}}</li>
+                          <li>{{car.body_style}}</li>
+                          <li>{{car.color}}</li>
+                          <li>{{car.year}}</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+
+
+
+      </div>
+      {% else %}
+      <div class="alert alert-primary text-right" role="alert">
+        <h4 class="text-right">!!شما هیچ خودرویی نفروخته اید</h4>
+      </div>
+      {% endif %}
+    </div>
   </div>
 </div>
 
